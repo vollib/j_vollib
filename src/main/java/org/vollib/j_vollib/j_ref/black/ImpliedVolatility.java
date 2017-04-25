@@ -1,8 +1,7 @@
 package org.vollib.j_vollib.j_ref.black;
 
 import org.apache.commons.math3.analysis.UnivariateFunction;
-import org.apache.commons.math3.analysis.solvers.BrentSolver;
-import org.apache.commons.math3.analysis.solvers.UnivariateSolver;
+import org.vollib.j_vollib.helper.Helper;
 
 /**
  * Created by Maricris on 22/04/2017.
@@ -17,8 +16,7 @@ public class ImpliedVolatility {
             }
         };
 
-        UnivariateSolver solver = new BrentSolver(1e-15, 1e-15);
-        return solver.solve(1000, f, 1e-12, 100);
+        return Helper.brent(f);
     }
 
 }

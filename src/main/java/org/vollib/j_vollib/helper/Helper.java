@@ -1,6 +1,9 @@
 package org.vollib.j_vollib.helper;
 
 
+import org.apache.commons.math3.analysis.UnivariateFunction;
+import org.apache.commons.math3.analysis.solvers.BrentSolver;
+import org.apache.commons.math3.analysis.solvers.UnivariateSolver;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
 /**
@@ -19,4 +22,10 @@ public class Helper {
     public static double norm_pdf(double x) {
         return org.vollib.j_lets_be_rational.Constants.ONE_OVER_SQRT_TWO_PI * Math.exp(-0.5 * x * x);
     }
+
+    public static double brent(UnivariateFunction f) {
+        UnivariateSolver solver = new BrentSolver(1e-15, 1e-15, 0);
+        return solver.solve(1000, f, 1e-12, 100);
+    }
+
 }
