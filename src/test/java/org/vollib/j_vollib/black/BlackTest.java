@@ -1,8 +1,10 @@
 package org.vollib.j_vollib.black;
 
 import org.junit.Test;
+import org.vollib.j_vollib.helper.Flag;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.vollib.j_vollib.helper.Constants.EPSILON;
 
 /**
@@ -63,5 +65,15 @@ public class BlackTest {
 
         assertEquals(0.061296663817558904, Black.normalised_black(x, s, 'p'), EPSILON);
         assertEquals(0.11259558142181655, Black.normalised_black(x, s, 'c'), EPSILON);
+        assertEquals(Math.abs(Black.normalised_black(x, s, 'p') - Black.normalised_black(x, s, 'c')), normalised_intrinsic(F,K,'c'), 1e-12);
+        assertTrue((Black.normalised_black(x, s, 'p') - (Black.normalised_black(x, s, 'c') - normalised_intrinsic(F,K,'c')))<1e-12);
+    }
+
+    private double normalised_intrinsic(double F, double K, char flag) {
+        if (Flag.valueOf(flag) == Flag.CALL) {
+            return Math.max(F-K,0)/Math.pow((F*K), 0.5);
+        } else {
+            return Math.max(K-F,0)/Math.pow((F*K), 0.5);
+        }
     }
 }
