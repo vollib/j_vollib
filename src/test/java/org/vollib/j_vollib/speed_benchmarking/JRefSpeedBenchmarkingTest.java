@@ -1,6 +1,6 @@
 package org.vollib.j_vollib.speed_benchmarking;
 
-import org.junit.Ignore;
+import org.junit.Test;
 import org.vollib.j_vollib.helper.exceptions.PriceIsAboveMaximum;
 import org.vollib.j_vollib.helper.exceptions.PriceIsBelowIntrinsic;
 import org.vollib.j_vollib.j_ref.black.ImpliedVolatility;
@@ -17,7 +17,7 @@ import static org.vollib.j_vollib.TestUtil.toCsv;
  */
 public class JRefSpeedBenchmarkingTest {
 
-    @Ignore
+    @Test
     public void test_run() throws PriceIsBelowIntrinsic, PriceIsAboveMaximum, IOException {
         LinkedHashMap<String, String> results = new LinkedHashMap<>();
         results.put("","0");

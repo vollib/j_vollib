@@ -11,12 +11,17 @@ import org.apache.commons.math3.distribution.NormalDistribution;
  */
 public class Helper {
 
+
+    static UnivariateSolver solver = new BrentSolver(1e-15, 1e-15, 0);
+    static NormalDistribution norm = new NormalDistribution();
+
+
     public static double forward_price(double S, double t, double r) {
         return S/Math.exp(-r*t);
     }
 
     public static double norm_cdf(double x) {
-        return new NormalDistribution().cumulativeProbability(x);
+        return norm.cumulativeProbability(x);
     }
 
     public static double norm_pdf(double x) {
@@ -24,7 +29,6 @@ public class Helper {
     }
 
     public static double brent(UnivariateFunction f) {
-        UnivariateSolver solver = new BrentSolver(1e-15, 1e-15, 0);
         return solver.solve(1000, f, 1e-12, 100);
     }
 
