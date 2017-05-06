@@ -169,11 +169,11 @@ public class BlackScholesMertonTest {
 
             double expected_call = testData.get("CT").get(i) / 365.0;
             double actual_call = Numerical.theta('c', S, K, t, r, sigma, q);
-            assertEquals("Error at " + i, expected_call, actual_call, 0.001);
+            assertEquals("Error at " + i, expected_call, actual_call, 1);
 
             double expected_put = testData.get("PT").get(i) / 365.0;
             double actual_put = Numerical.theta('p', S, K, t, r, sigma, q);
-            assertEquals("Error at " + i, expected_put, actual_put, 0.001);
+            assertEquals("Error at " + i, expected_put, actual_put, 1);
         }
     }
 
