@@ -21,11 +21,13 @@ public class BlackScholesMertonTest {
 
     private static Map<String, List<Double>> testData = TestUtil.loadTestData();
 
+    private static int SIZE = testData.get("S").size();
+
     private static double q = 0;
 
     @Test
     public void test_prices() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -44,7 +46,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_analytical_delta() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -63,7 +65,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_analytical_theta() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -82,7 +84,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_analytical_gamma() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -101,7 +103,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_analytical_vega() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -120,7 +122,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_analytical_rho() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -139,7 +141,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_numerical_delta() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -158,7 +160,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_numerical_theta() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -177,7 +179,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_numerical_gamma() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -196,7 +198,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_numerical_vega() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -215,7 +217,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_numerical_rho() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
@@ -234,7 +236,7 @@ public class BlackScholesMertonTest {
 
     @Test
     public void test_implied_volatility() {
-        for (int i = 0; i < testData.size(); i++) {
+        for (int i = 0; i < SIZE; i++) {
             double S = testData.get("S").get(i);
             double K = testData.get("K").get(i);
             double t = testData.get("t").get(i);
