@@ -29,6 +29,12 @@ public class HelperTest {
         actual = Helper.norm_cdf(z);
         expected = 0.564011732814;
         assertEquals(expected, actual, 1e-12);
+
+        z = -10.630573076058571;
+        actual = Helper.norm_cdf(z);
+        expected = 1.0739427443990634E-26;
+        assertEquals(expected, actual, 0);
+
     }
 
 }
